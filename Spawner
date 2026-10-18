@@ -569,8 +569,8 @@ local function DamagePlayer(entity: any)
     local newHealth = math.clamp(Humanoid.Health - config.Damage.Amount, 0, Humanoid.MaxHealth)
 
     -- Update health
+	task.spawn(entity.RunCallback, entity, "OnDamagePlayer", newHealth)
     Humanoid.Health = newHealth
-    task.spawn(entity.RunCallback, entity, "OnDamagePlayer", newHealth)
 
     if newHealth == 0 then
         -- Death hints
