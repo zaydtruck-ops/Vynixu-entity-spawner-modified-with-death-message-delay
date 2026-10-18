@@ -566,7 +566,7 @@ local function DamagePlayer(entity: any)
 	if Humanoid.Health <= 0 or IsPlayerProtected() then return end
 		
     local config = entity.Config
-    local newHealth = Humanoid.Health - confing.Damage.Amount
+    local newHealth = math.clamp(Humanoid.Health - config.Damage.Amount, 0, Humanoid.MaxHealth)
 
     -- Update health
     Humanoid.Health = newHealth
