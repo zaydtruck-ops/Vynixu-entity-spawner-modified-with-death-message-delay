@@ -569,6 +569,9 @@ local function DamagePlayer(entity: any)
     local newHealth = math.clamp(Humanoid.Health - config.Damage.Amount, 0, Humanoid.MaxHealth)
 
     -- Update health
+	if config.Death.MessageDelay then
+		task.wait(config.Death.MessageDelay)
+	end
     Humanoid.Health = newHealth
     task.spawn(entity.RunCallback, entity, "OnDamagePlayer", newHealth)
 
@@ -1044,9 +1047,6 @@ Module.Run = function(self, entity: any, copyEntity: boolean)
                     and inSight
                 then
                     model:SetAttribute("Damage", false)
-					if config.Death.MessageDelay then
-                  		task.wait(config.Death.MessageDelay)
-                	end
                     DamagePlayer(entity)
                 end
             end
