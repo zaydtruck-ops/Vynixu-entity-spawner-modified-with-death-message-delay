@@ -568,9 +568,7 @@ local function DamagePlayer(entity: any)
     local config = entity.Config
     local newHealth = math.clamp(Humanoid.Health - config.Damage.Amount, 0, Humanoid.MaxHealth)
 	
-
     -- Update health
-	print("caca")
 	if config.Death.MessageDelay then
 		task.wait(config.Death.MessageDelay)
 	end
