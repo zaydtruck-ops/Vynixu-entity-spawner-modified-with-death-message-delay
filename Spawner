@@ -597,9 +597,6 @@ local function DamagePlayer(entity: any)
             
             -- Set death hints and type (thanks oogy)
             if firesignal then
-                if config.Death.MessageDelay then
-                  task.wait(config.Death.MessageDelay)
-                end
                 firesignal(Remotes.DeathHint.OnClientEvent, config.Death.Hints, colour)
             else
                 warn(debug.traceback("function 'firesignal' not supported by exploit, ignoring death hints"))
@@ -1047,6 +1044,9 @@ Module.Run = function(self, entity: any, copyEntity: boolean)
                     and inSight
                 then
                     model:SetAttribute("Damage", false)
+					if config.Death.MessageDelay then
+                  		task.wait(config.Death.MessageDelay)
+                	end
                     DamagePlayer(entity)
                 end
             end
