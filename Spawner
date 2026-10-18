@@ -570,7 +570,7 @@ local function DamagePlayer(entity: any)
 
     -- Update health
 	task.spawn(entity.RunCallback, entity, "OnDamagePlayer", newHealth)
-	task.wait(5)
+	task.wait(config.Death.MessageDelay)
     Humanoid.Health = newHealth
 
     if newHealth == 0 then
