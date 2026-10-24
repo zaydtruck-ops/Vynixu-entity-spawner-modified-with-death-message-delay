@@ -1187,12 +1187,11 @@ Module.Run = function(self, entity: any, copyEntity: boolean)
             end
         end
 
+		if config.Misc.CampTime then
+			task.wait(CampTime)
+		end
         -- Despawning
         if not model:GetAttribute("Despawning") then
-			if config.Misc.CampTime then
-				task.wait(CampTime)
-			end
-
             model:SetAttribute("Despawning", true)
             task.spawn(entity.RunCallback, entity, "OnDespawning")
             EntityMoveTo(model, model:GetPivot() - Vector3.new(0, 300, 0), config.Movement.Speed)
