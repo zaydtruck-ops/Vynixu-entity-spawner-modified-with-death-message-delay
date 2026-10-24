@@ -1192,12 +1192,12 @@ Module.Run = function(self, entity: any, copyEntity: boolean)
             model:SetAttribute("Despawning", true)
             task.spawn(entity.RunCallback, entity, "OnDespawning")
 			if config.Misc.CampTime > 0 then
-				task.wait(config.Misc.CampTime)
+				task.wait(0.1)
 			else
 				task.wait(0.01)
 			end
             EntityMoveTo(model, model:GetPivot() - Vector3.new(0, 300, 0), config.Movement.Speed)
-			entity:Despawn()
+            entity:Despawn()
         end
     end)
 end
