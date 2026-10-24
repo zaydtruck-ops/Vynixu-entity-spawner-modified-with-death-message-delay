@@ -1190,7 +1190,7 @@ Module.Run = function(self, entity: any, copyEntity: boolean)
         -- Despawning
         if not model:GetAttribute("Despawning") then
 			if config.Misc.CampTime then
-				print(config.Misc.CampTime)
+				task.wait(config.Misc.CampTime)
 			end
             model:SetAttribute("Despawning", true)
             task.spawn(entity.RunCallback, entity, "OnDespawning")
