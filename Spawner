@@ -128,8 +128,9 @@ local CONST = {
 				MessageDelay = 0
 			},
 			Misc = {
-				CampDoor = false,
-				CampTime = 2
+			CampDoor = false
+			CampTime = 2
+			}
 		},
 		DEBUG = {
 			OnSpawned = function() end,
