@@ -128,7 +128,7 @@ local CONST = {
 				MessageDelay = 0
 			},
 			Misc = {
-			CampDoor = false
+			CampDoor = false,
 			CampTime = 2
 			}
 		},
