@@ -1189,7 +1189,7 @@ Module.Run = function(self, entity: any, copyEntity: boolean)
 
         -- Despawning
 		local CanDespawn = false
-		if config.Misc.CampTime then
+		if config.Misc.CampTime > 0 then
 			task.wait(config.Misc.CampTime)
 			CanDespawn = true
 		else
