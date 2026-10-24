@@ -1198,8 +1198,10 @@ Module.Run = function(self, entity: any, copyEntity: boolean)
         if not model:GetAttribute("Despawning") and CanDespawn == true then
             model:SetAttribute("Despawning", true)
             task.spawn(entity.RunCallback, entity, "OnDespawning")
+			--[[
             EntityMoveTo(model, model:GetPivot() - Vector3.new(0, 300, 0), config.Movement.Speed)
-            entity:Despawn()
+			entity:Despawn()
+			]]
         end
     end)
 end
