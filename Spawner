@@ -124,8 +124,12 @@ local CONST = {
 			Death = {
 				Type = "Guiding", -- "Curious"
 				Hints = {"Death", "Hints", "Go", "Here"},
-				Cause = ""
-			}
+				Cause = "",
+				MessageDelay = 0
+			},
+			Misc = {
+				CampDoor = false,
+				CampTime = 2
 		},
 		DEBUG = {
 			OnSpawned = function() end,
