@@ -128,8 +128,8 @@ local CONST = {
 				MessageDelay = 0
 			},
 			Misc = {
-			CampDoor = false,
-			CampTime = 2
+				CampDoor = false,
+				CampTime = 2
 			}
 		},
 		DEBUG = {
@@ -659,7 +659,11 @@ local function GetPathfindNodesAmbush(config: any): { BasePart }
 	local pathfindNodes = {}
     local rooms = CurrentRooms:GetChildren()
     if config.Movement.Reversed == false then
-        for i = 1, #rooms, 1 do
+		local roomsNumber = #rooms
+		if config.Misc.CampDoor == true then
+			roomsNumber = #rooms - 1
+		end
+        for i = 1, #roomsNumber, 1 do
             local room = rooms[i]
             local roomNodes = GetNodesFromRoom(room, false)
             for _, node in next, roomNodes do
