@@ -659,6 +659,7 @@ local function GetPathfindNodesAmbush(config: any): { BasePart }
 	local pathfindNodes = {}
     local rooms = CurrentRooms:GetChildren()
     if config.Movement.Reversed == false then
+		print(rooms)
         for i = 1, #rooms, 1 do
             local room = rooms[i]
             local roomNodes = GetNodesFromRoom(room, false)
