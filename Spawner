@@ -107,7 +107,7 @@ local CONST = {
 				Repair = false
 			},
 			Earthquake = {
-				Enabled = true
+				Enabled = false
 			},
 			CameraShake = {
 				Enabled = true,
@@ -123,13 +123,13 @@ local CONST = {
 			},
 			Death = {
 				Type = "Guiding", -- "Curious"
-				Hints = {"Death", "Hints", "Go", "Here"},
+				Hints = {},
 				Cause = "",
 				MessageDelay = 0
 			},
 			Misc = {
 				CampDoor = false,
-				CampTime = 2
+				CampTime = 0
 			}
 		},
 		DEBUG = {
@@ -658,9 +658,14 @@ end
 local function GetPathfindNodesAmbush(config: any): { BasePart }
 	local pathfindNodes = {}
     local rooms = CurrentRooms:GetChildren()
+	local numberOfRooms = #rooms
+	if config.Misc.CampDoor == true then
+		numberOfRooms = #rooms - 1
+	end
+	
     if config.Movement.Reversed == false then
 		print(rooms)
-        for i = 1, #rooms - 1, 1 do
+        for i = 1, numberOfRooms, 1 do
             local room = rooms[i]
             local roomNodes = GetNodesFromRoom(room, false)
             for _, node in next, roomNodes do
