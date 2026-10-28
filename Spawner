@@ -660,7 +660,7 @@ local function GetPathfindNodesAmbush(config: any): { BasePart }
     local rooms = CurrentRooms:GetChildren()
     if config.Movement.Reversed == false then
 		print(rooms)
-        for i = 1, #rooms, 1 do
+        for i = 1, #rooms - 1, 1 do
             local room = rooms[i]
             local roomNodes = GetNodesFromRoom(room, false)
             for _, node in next, roomNodes do
@@ -1193,7 +1193,7 @@ Module.Run = function(self, entity: any, copyEntity: boolean)
             model:SetAttribute("Despawning", true)
             task.spawn(entity.RunCallback, entity, "OnDespawning")
 			if config.Misc.CampTime > 0 then
-				task.wait(20)
+				task.wait(config.Misc.CampTime)
 			else
 				task.wait(0)
 			end
